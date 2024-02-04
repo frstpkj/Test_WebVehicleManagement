@@ -107,7 +107,7 @@ app.post("/vehicle", middleware, (req, res) => {
           })
           .then(() => {
             res.status(200);
-            res.json({ message: "success" });
+            res.json({ message: "Success" });
           });
       }
     });
