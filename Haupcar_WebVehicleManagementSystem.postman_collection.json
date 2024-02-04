@@ -1,0 +1,425 @@
+{
+	"info": {
+		"_postman_id": "b054915c-2698-4fce-bb93-10c30e228aef",
+		"name": "Haupcar_WebVehicleManagementSystem",
+		"description": "Hello, this is a mock up API using for the vehicle management ststem.\n\nSo, this API using for testing in assingnment for Fullstack Role : Haupcar Co.,Ltd\n\nCreated by: Mr.Supakij Buasod - First (02/20/2024)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23932964"
+	},
+	"item": [
+		{
+			"name": "Success",
+			"item": [
+				{
+					"name": "[200] Get all vehicle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "39b4e619f3e308c8e88edf7b07fd6c09",
+								"type": "text"
+							}
+						],
+						"url": "localhost:3300/"
+					},
+					"response": []
+				},
+				{
+					"name": "[200] Get vehicle by license plate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "39b4e619f3e308c8e88edf7b07fd6c09",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3300/:licenseNumber",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								":licenseNumber"
+							],
+							"variable": [
+								{
+									"key": "licenseNumber",
+									"value": "asdf-333"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[200] Add new vehicle data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "39b4e619f3e308c8e88edf7b07fd6c09",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"LicensePlate\": \"asdf-888\",\n  \"VehicleBrand\": \"Mazda\",\n  \"VehicleModel\": \"3\",\n  \"Note\": \"asdf\",\n  \"etc\": \"...\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3300/vehicle"
+					},
+					"response": []
+				},
+				{
+					"name": "[200] Edit vehicle data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "39b4e619f3e308c8e88edf7b07fd6c09",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"LicensePlate\": \"asdf-888\",\n  \"VehicleBrand\": \"Honda2\",\n  \"VehicleModel\": \"City2\",\n  \"Note\": \"asdf2\",\n  \"etc\": \"...\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3300/vehicle/:licenseNumber",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"vehicle",
+								":licenseNumber"
+							],
+							"variable": [
+								{
+									"key": "licenseNumber",
+									"value": "asdf-888"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[200] Delete vehicle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "39b4e619f3e308c8e88edf7b07fd6c09",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3300/vehicle/:licenseNumber",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"vehicle",
+								":licenseNumber"
+							],
+							"variable": [
+								{
+									"key": "licenseNumber",
+									"value": "asdf-888"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Error",
+			"item": [
+				{
+					"name": "[401] UNAUTHORIZED",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:3300/"
+					},
+					"response": []
+				},
+				{
+					"name": "[404] Get vehicle by license plate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "39b4e619f3e308c8e88edf7b07fd6c09",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3300/:licenseNumber",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								":licenseNumber"
+							],
+							"variable": [
+								{
+									"key": "licenseNumber",
+									"value": "asdf-999"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[409] Add new vehicle data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "39b4e619f3e308c8e88edf7b07fd6c09",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"LicensePlate\": \"asdf-333\",\n  \"VehicleBrand\": \"Mazda\",\n  \"VehicleModel\": \"3\",\n  \"Note\": \"asdf\",\n  \"etc\": \"...\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3300/vehicle"
+					},
+					"response": []
+				},
+				{
+					"name": "[404] Edit vehicle data Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "39b4e619f3e308c8e88edf7b07fd6c09",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"LicensePlate\": \"asdf-999\",\n  \"VehicleBrand\": \"Honda\",\n  \"VehicleModel\": \"City\",\n  \"Note\": \"asdf\",\n  \"etc\": \"...\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3300/vehicle/:licenseNumber",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"vehicle",
+								":licenseNumber"
+							],
+							"variable": [
+								{
+									"key": "licenseNumber",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[404] Delete vehicle Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "39b4e619f3e308c8e88edf7b07fd6c09",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3300/vehicle/:licenseNumber",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"vehicle",
+								":licenseNumber"
+							],
+							"variable": [
+								{
+									"key": "licenseNumber",
+									"value": "asdf-999"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
